@@ -10,7 +10,7 @@ type EnvConfig = {
 };
 
 const ENV: EnvConfig = {
-	MONGO_DB: process.env.MONGO,
+	MONGO_DB: process.env.MONGO_DB,
 	ORIGIN: process.env.ORIGIN ?? '*',
 	PORT: process.env.PORT,
 	SECRET_KEY: process.env.SECRET_KEY,
