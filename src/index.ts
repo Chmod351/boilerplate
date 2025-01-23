@@ -2,8 +2,10 @@ import 'reflect-metadata';
 import express from 'express';
 
 import db from './helpers/dbConfig';
+import enviroments from './helpers/envConfig';
 
 import errorHandler from './helpers/errorHandler';
+
 
 import middlewares from './middlewares/middleware';
 import routes from './api/routes';
@@ -21,7 +23,7 @@ app.use(`${apiUrl}`,routes.userRoutes)
 
 
 app.use(errorHandler);
-app.listen(8000, () => {
+app.listen(enviroments.PORT, () => {
 	db()
-	console.log('Server is running on port http://localhost:8000/ and socket ws://localhost:3000');
+	console.log('Server is running on port ', enviroments.PORT);
 });
