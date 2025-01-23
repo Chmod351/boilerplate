@@ -17,7 +17,6 @@ class UserServices {
 			await emailService.sendEmail({
 				to: createdUSer.email,
 				subject: 'Welcome to the app',
-				text: 'Welcome to the app',
 				html: emailConfirmTemplate,
 			})
 		} catch (e) {
