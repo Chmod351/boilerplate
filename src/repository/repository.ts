@@ -10,13 +10,18 @@ export interface DeleteResult {
   deletedCount: number;
 }
 
+
+export interface DB_ID {
+  _id: mongoose.Types.ObjectId
+}
+
 export interface IRepository<T> {
   findAll(page: number): Promise<{ data: T[]; totalItems: number; totalPages: number }>;
   findByQuery(query: object, page: number): Promise<{ data: T[]; totalItems: number; totalPages: number }>;
-  findById(id: mongoose.Types.ObjectId | string): Promise<T | null>;
+  findById(id: DB_ID | string): Promise<T | null>;
   create(item: T): Promise<T>;
-  update(id: mongoose.Types.ObjectId | string, item:object): Promise<T | null>;
-  delete(id: mongoose.Types.ObjectId | string): Promise<DeleteResult>;
+  update(id: DB_ID | string, item:object): Promise<T | null>;
+  delete(id: DB_ID | string): Promise<DeleteResult>;
 }
 
 
@@ -49,7 +54,7 @@ class Repository<T> implements IRepository<T> {
 		return { data, totalItems, totalPages };
 	}
 
-	async findById(id: mongoose.Types.ObjectId | string): Promise<T | null> {
+	async findById(id: DB_ID | string): Promise<T | null> {
 		return await this.model.findById(id).exec();
 	}
 	async findByEmail(email: string): Promise<T | null> {
@@ -61,7 +66,7 @@ class Repository<T> implements IRepository<T> {
 	async create(item: T): Promise<T> {
 		return await this.model.create(item);
 	}
-	async update(id: mongoose.Types.ObjectId | string, item: object): Promise<T | null> {
+	async update(id: DB_ID | string, item: object): Promise<T | null> {
 		const updated: T | null = await this.model
 			.findOneAndUpdate({ _id: id }, item, {
 				new: true,
@@ -71,7 +76,7 @@ class Repository<T> implements IRepository<T> {
 		return updated;
 	}
 
-	async delete(id: mongoose.Types.ObjectId | string): Promise<DeleteResult> {
+	async delete(id: DB_ID | string): Promise<DeleteResult> {
 		return await this.model.deleteOne({ _id: id }).exec();
 	}
 }
