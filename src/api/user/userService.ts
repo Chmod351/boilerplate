@@ -1,6 +1,7 @@
 
 import {IUser,UserBody} from './userModel';
 import repository, {DB_ID} from '../../repository/repository'
+import emailConfirmTemplate from '../../templates/emailConfirm';
 import emailService from '../../helpers/emailService';
 
 class UserServices {
@@ -14,11 +15,10 @@ class UserServices {
 		const createdUSer=	await repository.user.create(body as IUser);
 		try {
 			await emailService.sendEmail({
-				from: '4JUd4@example.com',
 				to: createdUSer.email,
 				subject: 'Welcome to the app',
 				text: 'Welcome to the app',
-				html: '<h1>Welcome to the app</h1>',
+				html: emailConfirmTemplate,
 			})
 		} catch (e) {
 			/* handle error */
