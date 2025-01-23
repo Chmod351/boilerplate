@@ -1,16 +1,16 @@
-import bcrypt from 'bcryptjs';
+import encryptionService from "./EncriptionService";
+
 
 class Encrypt {
 	async hashPassword(password: string): Promise<string> {
 		console.log(password);
-		const bcryptSalt = await bcrypt.genSalt(12);
-		const hashed = await bcrypt.hash(password, bcryptSalt);
-		return hashed;
+		const hassedPassword= await encryptionService.hashPassword(password);
+		return hassedPassword
 	}
 
 	async comparePassword(password: string, testPassword: string): Promise<boolean> {
-		const matchPassword = await bcrypt.compare(password, testPassword);
-		return matchPassword;
+		return await encryptionService.comparePassword(password, testPassword);
+	
 	}
 }
 export default Encrypt;
