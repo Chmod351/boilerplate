@@ -1,8 +1,8 @@
 # boilerplate
 
-This proyect is a quick start for a backend with MONGO as db.
-It's use server side auth, with express session, and Mongoose as ORM.
-Email confirmation with nodemailer, and encription with bcrypt
+This proyect is a quick start for a backend with `nodejs express`.
+It's use server side auth, with `express-session` , and `Mongoose as ORM`.
+Email confirmation with `nodemailer`, and encription with `bcrypt`
 
 # how to use
 
