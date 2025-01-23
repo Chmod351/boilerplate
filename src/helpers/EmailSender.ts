@@ -1,10 +1,9 @@
 import * as nodemailer from 'nodemailer';
+import  environment  from '../helpers/envConfig';
 
 export interface EmailOptions {
-  from: string;
   to: string;
   subject: string;
-  text: string;
   html: string;
 }
 
@@ -25,10 +24,9 @@ class EmailSender {
 
 	async sendEmail(options: EmailOptions): Promise<void> {
 		const mailOptions = {
-			from: options.from,
+			from: environment.EMAIL_SENDER,
 			to: options.to,
 			subject: options.subject,
-			text: options.text,
 			html: options.html,
 		};
 
