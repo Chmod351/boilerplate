@@ -71,7 +71,6 @@ class UserController {
 						};
 						console.log(user);
 						(req.session as IMySessionData).loggedin = true;
-					   
 						res.status(200).json({
 							message: 'Logged in successfully',
 							session: req.session,
