@@ -18,4 +18,5 @@ class EmailService implements IEmailService {
 	}
 }
 
-export default EmailService;
+const emailService= new EmailService();
+export default emailService
