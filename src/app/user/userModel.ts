@@ -9,8 +9,6 @@ export interface IMySessionData extends SessionData {
   };
 }
 
-
-
 export interface IUser extends mongoose.Document {
   username: string;
   email: string;

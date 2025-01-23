@@ -1,10 +1,9 @@
 
 import {IUser,UserBody} from './userModel';
-import mongoose from 'mongoose';
-import repository from '../../repository/repository'
+import repository, {DB_ID} from '../../repository/repository'
 
 class UserServices {
-	async findById(id: string | mongoose.Types.ObjectId): Promise<IUser | null> {
+	async findById(id: string | DB_ID): Promise<IUser | null> {
 		return await repository.user.findById(id);
 	}
 	async findByEmail(email: string): Promise<IUser | null> {
