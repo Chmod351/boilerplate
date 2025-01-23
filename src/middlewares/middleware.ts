@@ -6,7 +6,7 @@ import session from 'express-session';
 
 const corsConfig = cors({
 	origin: (origin, callback) => {
-		const allowedOrigins = ['https://ciervademo.onrender.com', 'http://localhost:3000'];
+		const allowedOrigins = ['http://localhost:8000', 'http://localhost:3000'];
 		console.log({ origin });
 		if (!origin || allowedOrigins.includes(origin)) {
 			callback(null, true); // Permite el origen
