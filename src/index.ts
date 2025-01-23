@@ -6,7 +6,7 @@ import db from './helpers/dbConfig';
 import errorHandler from './helpers/errorHandler';
 
 import middlewares from './middlewares/middleware';
-import routes from './app/routes';
+import routes from './api/routes';
 
 
 export const app = express();
@@ -17,7 +17,7 @@ const apiUrl="/api/v1"
 middlewares(app);
 
 
-app.use(`${apiUrl}`,routes)
+app.use(`${apiUrl}`,routes.userRoutes)
 
 
 app.use(errorHandler);

@@ -2,8 +2,8 @@ import { Inject, Service } from 'typedi';
 
 import mongoose, { Model } from 'mongoose';
 
-import {IUser} from '../app/user/userModel';
-import User from '../app/user/userModel';
+import {IUser} from '../api/user/userModel';
+import User from '../api/user/userModel';
 
 
 export interface DeleteResult {
