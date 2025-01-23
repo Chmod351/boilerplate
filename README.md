@@ -6,7 +6,9 @@ Email confirmation with `nodemailer`, and encription with `bcrypt`
 
 # how to use
 
-git clone the repo 
+git clone the repo with ssh ` git@github.com:Chmod351/boilerplate.git` 
+
+or with htts `https://github.com/Chmod351/boilerplate.git`
 
 install dependencies with `npm i ` 
 and run with  `npm run dev`
